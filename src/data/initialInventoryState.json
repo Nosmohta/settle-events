@@ -1,0 +1,78 @@
+{
+  "eventProducts": [
+    {
+      "id": 135,
+      "name": "Flume t-shirt",
+      "variants": [
+        {
+          "price": 10.34,
+          "variantName": "Small",
+          "countIn": 10,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        },
+        {
+          "price": 10.34,
+          "variantName": "Medium",
+          "countIn": 10,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        },
+        {
+          "price": 10.34,
+          "variantName": "Large",
+          "countIn": 10,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        }
+      ]
+    },
+    {
+      "id": 235,
+      "name": "Patrick Watson t-shirt",
+      "variants": [
+        {
+          "price": 10.34,
+          "variantName": "Small",
+          "countIn": 123,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        },
+        {
+          "price": 10.34,
+          "variantName": "Medium",
+          "countIn": 10,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        },
+        {
+          "price": 10.34,
+          "variantName": "Large",
+          "countIn": 10,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        }
+      ]
+    },
+    {
+      "id": 935,
+      "name": "Hozier poster",
+      "variants": [
+        {
+          "price": 10.34,
+          "variantName": "",
+          "countIn": 10,
+          "add": 2,
+          "comp": 1,
+          "countOut": 6
+        }
+      ]
+    }
+  ]
+}
