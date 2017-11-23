@@ -1,17 +1,43 @@
 import React, { Component } from 'react';
+import {
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 
-
-class ProductCounts extends Component {
+class VariantCount extends Component {
 
   render() {
-    console.log("ProductCounts Props: ", this.props)
+    console.log("VariantCount Props: ", this.props)
     return (
-        <div className="VariantCount">
-          Variant counts....
-        </div>
+      <TableRow>
+        <TableRowColumn>
+         {this.props.variant.variantName}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.countIn}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.add}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.totalIn}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.comp}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.countOut}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.totalSold}
+        </TableRowColumn>
+        <TableRowColumn>
+         {this.props.variant.gross}
+        </TableRowColumn>
+      </TableRow>
     );
   }
 }
 
-export default ProductCounts;
+export default VariantCount;

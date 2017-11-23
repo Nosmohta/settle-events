@@ -1,30 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import '../css/App.css';
+import glamorous from 'glamorous'
 
 import ProductCounts from '../components/product-counts'
 
+const Page = glamorous.div({
+
+})
+
+const EventProductsList = glamorous.div({
+  display: 'flex',
+  width: '100%',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  padding: '10px',
+})
+
 const EventCountsPage = (props) => {
 
-  console.log(props)
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Event Inventory Count</h1>
-      </header>
-      <div className="ProductsList">
+    <Page>
+      <EventProductsList>
         {props.eventProducts &&
           props.eventProducts.map(product => {
             return (
               <ProductCounts product={product}/>
             )
           })
-
         }
-      </div>
-    </div>
+      </EventProductsList>
+    </Page>
   );
 }
 
