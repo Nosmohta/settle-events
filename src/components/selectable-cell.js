@@ -16,6 +16,8 @@ const CellStyles = {
   textAlign: 'center',
   border: 'none',
   color: 'inherit',
+  fontSize: 'inherit',
+  fontWeight: 'inherit'
 }
 
 class SelectableCell extends React.Component {

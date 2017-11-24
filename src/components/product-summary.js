@@ -46,7 +46,7 @@ const ProductSummary = (props) => {
       </ProductName>
       <SummaryBody>
         <ImageContainer>
-          <img src={require(`../data/images/product-${props.product.id}.jpg`)} alt="" height="150px" width="150px" />
+          <img src={require(`../data/images/product-${props.product.id}.jpg`)} alt="" height="200px" width="200px" />
         </ImageContainer>
         <Summary>
           <SummaryText>

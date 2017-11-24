@@ -12,9 +12,18 @@ import SelectableCell from './selectable-cell'
 
 const { toCurrencyString }  = require('../util/helper-functions')
 
+const tableHeaderStyles = {
+  padding: '5px',
+  textAlign: 'center',
+  fontSize: '1.2rem',
+  fontWeight: '300',
+}
+
 const tableRowColumnStyles = {
   padding: '5px',
   textAlign: 'center',
+  fontSize: '1.2rem',
+  fontWeight: '300',
 }
 
 const VariantList = (props) => {
@@ -66,14 +75,14 @@ const VariantList = (props) => {
         displaySelectAll={false}
       >
         <TableRow>
-          <TableHeaderColumn>Size</TableHeaderColumn>
-          <TableHeaderColumn>Count In</TableHeaderColumn>
-          <TableHeaderColumn>Add</TableHeaderColumn>
-          <TableHeaderColumn>Total In</TableHeaderColumn>
-          <TableHeaderColumn>Comp</TableHeaderColumn>
-          <TableHeaderColumn>Count Out</TableHeaderColumn>
-          <TableHeaderColumn>Total Sold</TableHeaderColumn>
-          <TableHeaderColumn>Gross</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Size</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Count In</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Add</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Total In</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Comp</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Count Out</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Total Sold</TableHeaderColumn>
+          <TableHeaderColumn style={tableHeaderStyles}>Gross</TableHeaderColumn>
         </TableRow>
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
