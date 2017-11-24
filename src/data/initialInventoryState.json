@@ -2,10 +2,12 @@
   "eventProducts": [
     {
       "id": 135,
-      "name": "Flume t-shirt",
+      "name": "Flume T-shirt",
+      "price": 10.34,
+      "description": "Rad shirt that you'll love!",
       "variants": [
         {
-          "price": 10.34,
+          "id": 5309456,
           "variantName": "Small",
           "countIn": 10,
           "add": 2,
@@ -13,7 +15,7 @@
           "countOut": 6
         },
         {
-          "price": 10.34,
+          "id": 53456,
           "variantName": "Medium",
           "countIn": 10,
           "add": 2,
@@ -21,7 +23,7 @@
           "countOut": 6
         },
         {
-          "price": 10.34,
+          "id": 53456,
           "variantName": "Large",
           "countIn": 10,
           "add": 2,
@@ -32,10 +34,12 @@
     },
     {
       "id": 235,
-      "name": "Patrick Watson t-shirt",
+      "name": "Patrick Watson T-shirt",
+      "price": 30.34,
+      "description": "An even better shirt that you'll love the most!",
       "variants": [
         {
-          "price": 10.34,
+          "id": 53456,
           "variantName": "Small",
           "countIn": 123,
           "add": 2,
@@ -43,7 +47,7 @@
           "countOut": 6
         },
         {
-          "price": 10.34,
+          "id": 53436456,
           "variantName": "Medium",
           "countIn": 10,
           "add": 2,
@@ -51,7 +55,7 @@
           "countOut": 6
         },
         {
-          "price": 10.34,
+          "id": 534746,
           "variantName": "Large",
           "countIn": 10,
           "add": 2,
@@ -63,14 +67,16 @@
     {
       "id": 935,
       "name": "Hozier poster",
+      "price": 100.34,
+      "description": "World's best poster.",
       "variants": [
         {
-          "price": 10.34,
+          "id": 5456,
           "variantName": "",
-          "countIn": 10,
-          "add": 2,
-          "comp": 1,
-          "countOut": 6
+          "countIn": 1080,
+          "add": 32,
+          "comp": 79,
+          "countOut": 567
         }
       ]
     }

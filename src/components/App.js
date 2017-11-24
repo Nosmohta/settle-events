@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import '../css/App.css';
-
 import EventCountsPage from '../pages/event-counts-page'
 
 class App extends Component {
