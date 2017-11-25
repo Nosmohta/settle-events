@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import glamorous from 'glamorous'
 
 import CircularProgress from 'material-ui/CircularProgress';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+
+import { toggleSettledState } from '../actions'
 
 const { toCurrencyString, createEventSummary }  = require('../util/helper-functions')
 
@@ -68,11 +71,16 @@ const buttonStyle = {
 }
 
 const buttonLabelStyle = {
-  fontSize: '2rem'
+  fontSize: '2rem',
+  color: 'white'
 }
 
 const SettleEventSummary = (props) => {
   const eventSummary = createEventSummary(props.products)
+
+  const settleEvent = () => {
+    props.dispatch(toggleSettledState())
+  }
 
   return (
     <Container>
@@ -102,15 +110,21 @@ const SettleEventSummary = (props) => {
         </EventTotal>
         <RaisedButton
           label={'Settle'}
-          primary={true}
+          backgroundColor={props.settled ? '#FC5556': '#26BCD4'}
           fullWidth={true}
           buttonStyle={buttonStyle}
           labelStyle={buttonLabelStyle}
+          onClick={settleEvent}
          />
       </Paper>
     </Container>
-
   );
 }
 
-export default SettleEventSummary;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    settled: state.inventory.settled
+  };
+};
+
+export default connect(mapStateToProps)(SettleEventSummary);

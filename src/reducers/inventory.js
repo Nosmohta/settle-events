@@ -35,6 +35,11 @@ const inventory = (state = initialState, action) => {
         ...state,
         ...{ eventProducts: updatedEventProducts }
       };
+    case 'TOGGLE_SETTLED_STATE':
+      return {
+        ...state,
+        ...{ settled: !state.settled }
+      }
     default:
       return state;
   }

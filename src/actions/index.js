@@ -5,3 +5,10 @@ export const updateVariantSettleCount = payload => {
     payload
   };
 };
+
+export const toggleSettledState = () => {
+
+  return {
+    type: 'TOGGLE_SETTLED_STATE'
+  };
+};

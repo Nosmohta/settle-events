@@ -8,6 +8,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
+import EditProduct from './edit-product'
 import SelectableCell from './selectable-cell'
 
 const { toCurrencyString }  = require('../util/helper-functions')
@@ -97,7 +98,9 @@ const VariantList = (props) => {
           key={'summary'}
           selected={false}
         >
-          <TableRowColumn style={tableRowColumnStyles} />
+          <TableRowColumn style={tableRowColumnStyles}>
+            <EditProduct productId={product.id}/>
+          </TableRowColumn>
           <TableRowColumn style={tableRowColumnStyles} />
           <TableRowColumn style={tableRowColumnStyles} />
           <TableRowColumn style={Object.assign({}, tableRowColumnStyles, {color: '#26BCD4', fontWeight: '600'})}>

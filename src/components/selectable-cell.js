@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import glamorous from 'glamorous'
-import { updateVariantSettleCount } from '../actions'
+import glamorous from 'glamorous';
+import { updateVariantSettleCount } from '../actions';
 
 const Cell = glamorous.div({
   display: 'flex',
@@ -53,6 +52,7 @@ class SelectableCell extends React.Component {
     return (
       <Cell>
         <input
+          disabled={this.props.settled}
           type="number"
           style={CellStyles}
           onChange={(e) => this.handleChange(e)}
@@ -64,5 +64,11 @@ class SelectableCell extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    settled: state.inventory.settled
+  }
+}
 
-export default connect()(SelectableCell);
+
+export default connect(mapStateToProps)(SelectableCell);
