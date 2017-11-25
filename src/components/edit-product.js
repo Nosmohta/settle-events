@@ -6,8 +6,11 @@ import Popover from "material-ui/Popover";
 import RaisedButton from "material-ui/RaisedButton";
 
 const Cell = glamorous.div({
+  display: "flex",
+  width: "inherit",
   height: "inherit",
-  width: "inherit"
+  justifyContent: "center",
+  alignItems: "center"
 });
 
 class EditProduct extends React.Component {
@@ -23,7 +26,6 @@ class EditProduct extends React.Component {
 
   handleTouchTap = event => {
     event.preventDefault();
-    console.log(event);
     this.setState({
       open: true,
       anchorEl: event.currentTarget
@@ -47,7 +49,7 @@ class EditProduct extends React.Component {
             targetOrigin={{ horizontal: "left", vertical: "top" }}
             onRequestClose={this.handleRequestClose}
           >
-            <div>{"Change Price"}</div>
+            {"Change Price"}
           </Popover>
         </RaisedButton>
       </Cell>
