@@ -57,7 +57,6 @@ const VariantTable = props => {
     const variantsSold = variantCountIn - variant.comp - variant.countOut;
     const gross = toCurrencyString(variantsSold * props.product.price);
 
-    console.log(window.innerWidth);
     return (
       <TableRow key={index}>
         <TableRowColumn

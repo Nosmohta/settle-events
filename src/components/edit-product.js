@@ -122,7 +122,11 @@ class EditProduct extends React.Component {
   render() {
     return (
       <Cell>
-        <RaisedButton onClick={this.handleTouchTap} label={"More"}>
+        <RaisedButton
+          onClick={this.handleTouchTap}
+          label={"More"}
+          disabled={this.props.settled}
+        >
           <Popover
             open={this.state.open}
             anchorEl={this.state.anchorEl}
@@ -210,4 +214,10 @@ class EditProduct extends React.Component {
   }
 }
 
-export default connect()(EditProduct);
+const mapStateToProps = state => {
+  return {
+    settled: state.inventory.settled
+  };
+};
+
+export default connect(mapStateToProps)(EditProduct);
