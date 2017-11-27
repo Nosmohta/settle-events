@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import glamorous from "glamorous";
 
-import CircularProgress from "material-ui/CircularProgress";
 import Paper from "material-ui/Paper";
 import RaisedButton from "material-ui/RaisedButton";
 
@@ -18,13 +17,12 @@ const {
 const Container = glamorous.div({
   display: "flex",
   justifyContent: "flex-end",
-  maxWidth: "1500px",
   margin: "10px"
 });
 
 const settleCardStyle = {
-  width: "40%",
-  minWidth: "340px",
+  flex: "1 0 340px",
+  maxWidth: "500px",
   display: "flex",
   flexDirection: "column",
   alignSelf: "flex-end",

@@ -1,38 +1,41 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import glamorous from 'glamorous'
+import React from "react";
+import { connect } from "react-redux";
+import glamorous from "glamorous";
 
-import ProductCounts from '../components/product-counts'
-import SettleEventSummary from '../components/settle-event-summary'
+import ProductCounts from "../components/product-counts";
+import SettleEventSummary from "../components/settle-event-summary";
 
 const Page = glamorous.div({
-  marginTop: '50px',
-  marginBottom: '150px'
-})
+  display: "flex"
+});
+
+const Column = glamorous.div({
+  flex: "1 0 900px",
+  display: "flex",
+  flexDirection: "column"
+});
 
 const EventProductsList = glamorous.div({
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '10px',
-})
+  display: "flex",
+  flexDirection: "column"
+});
 
-const EventCountsPage = (props) => {
-  const products = props.eventProducts ? props.eventProducts : []
+const EventCountsPage = props => {
+  const products = props.eventProducts ? props.eventProducts : [];
 
   return (
     <Page>
-      <EventProductsList>
-        {products.map((product, i) => {
-            return (
-              <ProductCounts key={i} product={product}/>
-            )
-          })
-        }
-      </EventProductsList>
-      <SettleEventSummary products={products}/>
+      <Column>
+        <EventProductsList>
+          {products.map((product, i) => {
+            return <ProductCounts key={i} product={product} />;
+          })}
+        </EventProductsList>
+        <SettleEventSummary products={products} />
+      </Column>
     </Page>
   );
-}
+};
 
 const mapStateToProps = (state, ownProps) => {
   return {

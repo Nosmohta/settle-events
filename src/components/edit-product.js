@@ -2,8 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import glamorous from "glamorous";
 
+import Divider from "material-ui/Divider";
+import Paper from "material-ui/Paper";
 import Popover from "material-ui/Popover";
+import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
+
+import { saveProductUpdate } from "../actions";
+import { entryValid } from "../util/helper-functions";
 
 const Cell = glamorous.div({
   display: "flex",
@@ -13,15 +20,36 @@ const Cell = glamorous.div({
   alignItems: "center"
 });
 
+const PopoverContainer = glamorous.div({
+  margin: "10px"
+});
+
+const formInputStyles = {
+  color: "#9e9e9e"
+};
+
+const buttonStyles = {
+  margin: "10px"
+};
+
 class EditProduct extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      mode: "none",
+      validationError: false,
+      fieldValue: {
+        price: props.product.price,
+        note: props.product.note ? props.product.note : ""
+      }
     };
 
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.toggleMode = this.toggleMode.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.saveEntry = this.saveEntry.bind(this);
+    this.cancleEntry = this.cancleEntry.bind(this);
   }
 
   handleTouchTap = event => {
@@ -38,6 +66,59 @@ class EditProduct extends React.Component {
     });
   };
 
+  toggleMode(event, type) {
+    event.preventDefault();
+    this.setState((state, props) => {
+      return {
+        mode: state.mode === type ? "none" : type
+      };
+    });
+  }
+
+  handleChange(event, type) {
+    event.preventDefault();
+    this.setState({
+      fieldValue: Object.assign({}, this.state.fieldValue, {
+        [type]: event.target.value
+      })
+    });
+  }
+
+  saveEntry(event, type) {
+    event.preventDefault();
+    const payload = {
+      propertyType: type,
+      value: this.state.fieldValue[type]
+    };
+
+    if (entryValid(payload)) {
+      this.props.dispatch(saveProductUpdate(this.props.product.id, payload));
+      this.toggleMode(event, type);
+      this.setState({
+        validationError: false
+      });
+    } else {
+      this.setState({
+        validationError: true
+      });
+    }
+  }
+
+  cancleEntry(event, type) {
+    event.preventDefault();
+
+    this.setState((state, props) => {
+      return {
+        fieldValue: {
+          price: props.product.price,
+          note: props.product.note
+        },
+        validationError: false
+      };
+    });
+    this.toggleMode(event, type);
+  }
+
   render() {
     return (
       <Cell>
@@ -49,7 +130,79 @@ class EditProduct extends React.Component {
             targetOrigin={{ horizontal: "left", vertical: "top" }}
             onRequestClose={this.handleRequestClose}
           >
-            {"Change Price"}
+            <PopoverContainer>
+              <FlatButton
+                onClick={e => this.toggleMode(e, "price")}
+                label={"Edit Price"}
+              />
+              <br />
+              <FlatButton
+                onClick={e => this.toggleMode(e, "note")}
+                label={`${this.props.product.note ? "Edit Note" : "Add Note"}`}
+              />
+              {this.state.mode === "price" && (
+                <div>
+                  <br />
+                  <Divider />
+                  <br />
+                  {"PRICE ($)"}
+                  <br />
+                  <TextField
+                    type={"number"}
+                    name={"price"}
+                    errorText={
+                      this.state.validationError
+                        ? "Please provide a valid Input"
+                        : ""
+                    }
+                    value={this.state.fieldValue.price}
+                    onChange={e => this.handleChange(e, "price")}
+                    inputStyle={formInputStyles}
+                  />
+                  <br />
+                  <RaisedButton
+                    style={buttonStyles}
+                    onClick={e => this.saveEntry(e, "price")}
+                    label={"SAVE"}
+                  />
+                  <RaisedButton
+                    style={buttonStyles}
+                    onClick={e => this.cancleEntry(e, "price")}
+                    label={"CANCLE"}
+                  />
+                </div>
+              )}
+              {this.state.mode === "note" && (
+                <div>
+                  <br />
+                  <Divider />
+                  <br />
+                  {"NOTE:"}
+                  <br />
+                  <TextField
+                    type={"text"}
+                    name={"note"}
+                    multiLine={true}
+                    rows={2}
+                    rowsMax={4}
+                    value={this.state.fieldValue.note}
+                    onChange={e => this.handleChange(e, "note")}
+                    textareaStyle={formInputStyles}
+                  />
+                  <br />
+                  <RaisedButton
+                    style={buttonStyles}
+                    onClick={e => this.saveEntry(e, "note")}
+                    label={"SAVE"}
+                  />
+                  <RaisedButton
+                    style={buttonStyles}
+                    onClick={e => this.cancleEntry(e, "note")}
+                    label={"CANCLE"}
+                  />
+                </div>
+              )}
+            </PopoverContainer>
           </Popover>
         </RaisedButton>
       </Cell>

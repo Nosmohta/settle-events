@@ -5,11 +5,12 @@
       "id": 135,
       "name": "Flume T-shirt",
       "price": 10.34,
-      "description": "Rad shirt that you'll love!",
+      "description": "",
+      "note": "Steady sales through event.",
       "variants": [
         {
           "id": 5309456,
-          "variantName": "Small",
+          "size": "Small",
           "countIn": 10,
           "add": 2,
           "comp": 1,
@@ -17,7 +18,7 @@
         },
         {
           "id": 53456,
-          "variantName": "Medium",
+          "size": "Medium",
           "countIn": 10,
           "add": 2,
           "comp": 1,
@@ -25,7 +26,7 @@
         },
         {
           "id": 53456,
-          "variantName": "Large",
+          "size": "Large",
           "countIn": 10,
           "add": 2,
           "comp": 1,
@@ -38,10 +39,11 @@
       "name": "Patrick Watson T-shirt",
       "price": 30.34,
       "description": "An even better shirt that you'll love the most!",
+      "note": "Not a popular colour at this event.",
       "variants": [
         {
           "id": 53456,
-          "variantName": "Small",
+          "size": "Small",
           "countIn": 123,
           "add": 2,
           "comp": 1,
@@ -49,7 +51,7 @@
         },
         {
           "id": 53436456,
-          "variantName": "Medium",
+          "size": "Medium",
           "countIn": 10,
           "add": 2,
           "comp": 1,
@@ -57,7 +59,7 @@
         },
         {
           "id": 534746,
-          "variantName": "Large",
+          "size": "Large",
           "countIn": 10,
           "add": 2,
           "comp": 1,
@@ -70,10 +72,11 @@
       "name": "Hozier poster",
       "price": 100.34,
       "description": "World's best poster.",
+      "note": "",
       "variants": [
         {
           "id": 5456,
-          "variantName": "",
+          "size": "24 X 36",
           "countIn": 1080,
           "add": 32,
           "comp": 79,
