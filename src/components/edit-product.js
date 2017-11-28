@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import glamorous from "glamorous";
 
 import Divider from "material-ui/Divider";
-import Paper from "material-ui/Paper";
-import Popover from "material-ui/Popover";
 import FlatButton from "material-ui/FlatButton";
+import Popover from "material-ui/Popover";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 
@@ -21,7 +20,7 @@ const Cell = glamorous.div({
 });
 
 const PopoverContainer = glamorous.div({
-  margin: "10px"
+  margin: "0.5rem"
 });
 
 const formInputStyles = {
@@ -29,7 +28,7 @@ const formInputStyles = {
 };
 
 const buttonStyles = {
-  margin: "10px"
+  margin: "0.5rem"
 };
 
 class EditProduct extends React.Component {

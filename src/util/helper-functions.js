@@ -24,10 +24,10 @@ const createEventSummary = products =>
       const totalIn = acc.totalIn + productSummary.countIn + productSummary.add;
       const totalSold =
         acc.totalSold +
-        (productSummary.countIn +
-          productSummary.add -
-          productSummary.comp -
-          productSummary.countOut);
+        productSummary.countIn +
+        productSummary.add -
+        productSummary.comp -
+        productSummary.countOut;
 
       return {
         totalIn: totalIn,

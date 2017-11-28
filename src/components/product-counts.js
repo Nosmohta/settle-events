@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { css } from "glamor";
 import glamorous from "glamorous";
 import _ from "lodash";
 
@@ -7,10 +8,10 @@ import Paper from "material-ui/Paper";
 import ProductSummary from "../components/product-summary";
 import VariantTable from "../components/variant-table";
 
-const ProductCardStyle = {
+const ProductCardStyle = css({
   display: "flex",
   margin: "10px"
-};
+});
 
 const ProductSummaryContainer = glamorous.div({
   display: "flex",
@@ -23,7 +24,7 @@ const VariantTableContainer = glamorous.div({
   margin: "10px"
 });
 
-class ProductCounts extends Component {
+class ProductCounts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +38,7 @@ class ProductCounts extends Component {
 
   render() {
     return (
-      <Paper style={ProductCardStyle} zDepth={2}>
+      <Paper className={ProductCardStyle} zDepth={2}>
         <ProductSummaryContainer>
           <ProductSummary product={this.props.product} />
         </ProductSummaryContainer>

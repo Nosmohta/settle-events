@@ -1,14 +1,7 @@
 import React from "react";
 import glamorous from "glamorous";
 
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn
-} from "material-ui/Table";
+import { Table, TableBody, TableHeader } from "material-ui/Table";
 
 import CenterTextProgress from "./center-text-progress";
 import EditProduct from "./edit-product";
@@ -22,19 +15,26 @@ const Container = glamorous.div({
   margin: "10px"
 });
 
-const tableHeaderStyles = {
-  padding: "5px",
-  textAlign: "center",
-  fontSize: "1erm",
-  fontWeight: "300"
-};
+const TableRow = glamorous.tr({
+  display: "flex",
+  justifyContent: "space-between",
+  height: "55px",
+  borderBottom: "solid lightgrey 1px"
+});
 
-const tableRowColumnStyles = {
-  padding: "5px",
-  textAlign: "center",
-  fontSize: "1rem",
-  fontWeight: "300"
-};
+const TableRowColumn = glamorous.td(props => {
+  return {
+    display: "flex",
+    flex: props.wide ? `1 0 ${props.wide}rem` : "1 0 2rem",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: ".3em",
+    textAlign: "center",
+    color: props.color ? props.color : "grey",
+    fontSize: "1rem",
+    fontWeight: props.rowType && props.rowType === "footer" ? "600" : "300"
+  };
+});
 
 const VariantTable = props => {
   const product = props.product;
@@ -59,12 +59,10 @@ const VariantTable = props => {
 
     return (
       <TableRow key={index}>
-        <TableRowColumn
-          style={Object.assign({}, tableRowColumnStyles, { color: "#26BCD4" })}
-        >
+        <TableRowColumn color={"#26BCD4"} wide={3}>
           {variant.size}
         </TableRowColumn>
-        <TableRowColumn style={tableRowColumnStyles}>
+        <TableRowColumn>
           <SelectableCell
             value={variant.countIn}
             productId={product.id}
@@ -72,9 +70,7 @@ const VariantTable = props => {
             propertyName="countIn"
           />
         </TableRowColumn>
-        <TableRowColumn
-          style={Object.assign({}, tableRowColumnStyles, { color: "#44E171" })}
-        >
+        <TableRowColumn color={"#44E171"}>
           <SelectableCell
             value={variant.add}
             productId={product.id}
@@ -82,14 +78,8 @@ const VariantTable = props => {
             propertyName="add"
           />
         </TableRowColumn>
-        <TableRowColumn
-          style={Object.assign({}, tableRowColumnStyles, { color: "#26BCD4" })}
-        >
-          {variantCountIn}
-        </TableRowColumn>
-        <TableRowColumn
-          style={Object.assign({}, tableRowColumnStyles, { color: "#FC5556" })}
-        >
+        <TableRowColumn color={"#26BCD4"}>{variantCountIn}</TableRowColumn>
+        <TableRowColumn color={"#FC5556"}>
           <SelectableCell
             value={variant.comp}
             productId={product.id}
@@ -97,7 +87,7 @@ const VariantTable = props => {
             propertyName="comp"
           />
         </TableRowColumn>
-        <TableRowColumn style={tableRowColumnStyles}>
+        <TableRowColumn>
           <SelectableCell
             value={variant.countOut}
             productId={product.id}
@@ -105,14 +95,8 @@ const VariantTable = props => {
             propertyName="countOut"
           />
         </TableRowColumn>
-        <TableRowColumn
-          style={Object.assign({}, tableRowColumnStyles, { color: "#26BCD4" })}
-        >
-          {variantsSold}
-        </TableRowColumn>
-        <TableRowColumn
-          style={Object.assign({}, tableRowColumnStyles, { color: "#26BCD4" })}
-        >
+        <TableRowColumn color={"#26BCD4"}>{variantsSold}</TableRowColumn>
+        <TableRowColumn wide={3} color={"#26BCD4"}>
           {gross}
         </TableRowColumn>
       </TableRow>
@@ -124,28 +108,14 @@ const VariantTable = props => {
       <Table>
         <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
           <TableRow>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Size
-            </TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Count In
-            </TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>Add</TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Total In
-            </TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Comp
-            </TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Count Out
-            </TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Total Sold
-            </TableHeaderColumn>
-            <TableHeaderColumn style={tableHeaderStyles}>
-              Gross
-            </TableHeaderColumn>
+            <TableRowColumn wide={3}>Size</TableRowColumn>
+            <TableRowColumn>Count In</TableRowColumn>
+            <TableRowColumn>Add</TableRowColumn>
+            <TableRowColumn>Total In</TableRowColumn>
+            <TableRowColumn>Comp</TableRowColumn>
+            <TableRowColumn>Count Out</TableRowColumn>
+            <TableRowColumn>Total Sold</TableRowColumn>
+            <TableRowColumn wide={3}>Gross</TableRowColumn>
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
@@ -154,54 +124,28 @@ const VariantTable = props => {
               return generateVariantRow(variant, i);
             })}
           <TableRow key={"summary"} selected={false}>
-            <TableRowColumn style={tableRowColumnStyles}>
+            <TableRowColumn wide={3} rowType={"footer"}>
               <EditProduct product={product} />
             </TableRowColumn>
-            <TableRowColumn style={tableRowColumnStyles} />
-            <TableRowColumn style={tableRowColumnStyles} />
-            <TableRowColumn
-              style={Object.assign({}, tableRowColumnStyles, {
-                color: "#26BCD4",
-                fontWeight: "600"
-              })}
-            >
+            <TableRowColumn />
+            <TableRowColumn />
+            <TableRowColumn color={"#26BCD4"} rowType={"footer"}>
               {totalCountIn}
             </TableRowColumn>
-            <TableRowColumn
-              style={Object.assign({}, tableRowColumnStyles, {
-                color: "red",
-                fontWeight: "600"
-              })}
-            >
+            <TableRowColumn color={"#FC5556"} rowType={"footer"}>
               {totalComp}
             </TableRowColumn>
-            <TableRowColumn
-              style={Object.assign({}, tableRowColumnStyles, {
-                fontWeight: "600"
-              })}
-            >
-              {totalCountOut}
-            </TableRowColumn>
-            <TableRowColumn
-              style={Object.assign({}, tableRowColumnStyles, {
-                color: "#26BCD4",
-                fontWeight: "600"
-              })}
-            >
+            <TableRowColumn rowType={"footer"}>{totalCountOut}</TableRowColumn>
+            <TableRowColumn color={"#26BCD4"} rowType={"footer"}>
               <CenterTextProgress
-                size={48}
+                size={50}
                 thickness={3}
                 value={totalSold / totalCountIn * 100}
               >
                 {totalSold}
               </CenterTextProgress>
             </TableRowColumn>
-            <TableRowColumn
-              style={Object.assign({}, tableRowColumnStyles, {
-                color: "#26BCD4",
-                fontWeight: "600"
-              })}
-            >
+            <TableRowColumn wide={3} color={"#26BCD4"} rowType={"footer"}>
               {toCurrencyString(totalSold * product.price)}
             </TableRowColumn>
           </TableRow>

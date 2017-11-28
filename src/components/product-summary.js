@@ -1,7 +1,6 @@
 import React from "react";
 import glamorous from "glamorous";
 
-import { GridTile } from "material-ui/GridList";
 import Info from "material-ui/svg-icons/action/info";
 
 const { toCurrencyString } = require("../util/helper-functions");
