@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import glamorous from "glamorous";
 
-import ProductCounts from "../components/product-counts";
+import ProductCard from "../components/product-card";
 import SettleEventSummary from "../components/settle-event-summary";
 
 const Page = glamorous.div({
@@ -28,7 +28,7 @@ const EventCountsPage = props => {
       <Column>
         <EventProductsList>
           {products.map((product, i) => {
-            return <ProductCounts key={i} product={product} />;
+            return <ProductCard key={i} product={product} />;
           })}
         </EventProductsList>
         <SettleEventSummary products={products} />

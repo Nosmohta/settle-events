@@ -6,7 +6,7 @@ import _ from "lodash";
 import Paper from "material-ui/Paper";
 
 import ProductSummary from "../components/product-summary";
-import VariantTable from "../components/variant-table";
+import ProductVariantTable from "../components/product-variant-table";
 
 const ProductCardStyle = css({
   display: "flex",
@@ -24,7 +24,7 @@ const VariantTableContainer = glamorous.div({
   margin: "10px"
 });
 
-class ProductCounts extends React.Component {
+class ProductCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,11 +43,11 @@ class ProductCounts extends React.Component {
           <ProductSummary product={this.props.product} />
         </ProductSummaryContainer>
         <VariantTableContainer>
-          <VariantTable product={this.props.product} />
+          <ProductVariantTable product={this.props.product} />
         </VariantTableContainer>
       </Paper>
     );
   }
 }
 
-export default ProductCounts;
+export default ProductCard;

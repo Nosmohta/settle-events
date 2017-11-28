@@ -36,7 +36,7 @@ const TableRowColumn = glamorous.td(props => {
   };
 });
 
-const VariantTable = props => {
+const ProductVariantTable = props => {
   const product = props.product;
   const totalCountIn = product.variants.reduce(
     (acc, variant) => acc + variant.countIn + variant.add,
@@ -155,4 +155,4 @@ const VariantTable = props => {
   );
 };
 
-export default VariantTable;
+export default ProductVariantTable;
