@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { css } from "glamor";
 import glamorous from "glamorous";
 import { updateVariantSettleCount } from "../actions";
 
@@ -9,7 +10,7 @@ const Cell = glamorous.div({
   width: "inherit"
 });
 
-const CellStyles = {
+const cellStyles = css({
   height: "100%",
   width: "100%",
   textAlign: "center",
@@ -17,7 +18,7 @@ const CellStyles = {
   color: "inherit",
   fontSize: "inherit",
   fontWeight: "inherit"
-};
+});
 
 class SelectableCell extends React.Component {
   constructor(props) {
@@ -52,9 +53,9 @@ class SelectableCell extends React.Component {
     return (
       <Cell>
         <input
+          className={cellStyles}
           disabled={this.props.settled}
           type="number"
-          style={CellStyles}
           onChange={e => this.handleChange(e)}
           onBlur={e => this.saveCellState(e)}
           value={this.state.cellValue ? this.state.cellValue : 0}

@@ -1,12 +1,7 @@
 import React from "react";
 import glamorous from "glamorous";
 
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn
-} from "material-ui/Table";
+import { Table, TableBody, TableHeader } from "material-ui/Table";
 
 import CenterTextProgress from "./center-text-progress";
 import EditProduct from "./edit-product";
@@ -40,13 +35,6 @@ const TableRowColumn = glamorous.td(props => {
     fontWeight: props.rowType && props.rowType === "footer" ? "600" : "300"
   };
 });
-
-const tableHeaderStyles = {
-  padding: ".3em",
-  textAlign: "center",
-  fontSize: "1rem",
-  fontWeight: "300"
-};
 
 const VariantTable = props => {
   const product = props.product;
